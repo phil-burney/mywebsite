@@ -1,13 +1,47 @@
-import ButtonGroup from "./ButtonGroup";
-import LinkButton from "./LinkButton";
+import ButtonGroup from "./UserInput/ButtonGroup";
+import LinkButton from "../Components/UserInput/LinkButton";
+import AboutMe from "../Webpages/AboutMe"
+import Home from "../Webpages/Home"
+import AboutWebsite from "../Webpages/AboutWebsite"
+import Resume from "../Webpages/Resume"
+import ContactMe from "../Webpages/ContactMe"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react"
+import WidthSensitive from "../Utils/WidthSensitiveCollapse";
 
+const title="home";
+const aboutme = "aboutme"
+const aboutsite="aboutwebsite"
+const resume="resume"
+const contact="contactme"
 
-function Header(){
-    return (
-        <div>
-            <div id = "title"> Phil Burney's Website </div>
-            <ButtonGroup buttons = {[<LinkButton link = "/aboutme" text = "About me"></LinkButton>,<LinkButton link = "/resume" text = "Resume"></LinkButton>,<LinkButton link = "/aboutwebsite" text = "About the website"></LinkButton>]}></ButtonGroup>
-        </div>
-    )
-}
-export default Header;
+export default class Header extends React.Component {
+  render() {
+      return (
+        
+          
+        <div className="App">  
+          
+        <Router>
+              <ButtonGroup color="green">
+                <LinkButton  key={title} id={title} link="" text="Phil Burney Website"></LinkButton>
+                <LinkButton key={aboutme} id={aboutme} link = {aboutme} text = "About me"></LinkButton>
+                <LinkButton  key={resume} id={resume} link = {resume} text = "Resume"></LinkButton>
+                <LinkButton key={aboutsite} id={aboutsite} link= {aboutsite} text = "About the website"></LinkButton>
+                <LinkButton key={contact} id={contact} link= {contact} text = "Contact Me"></LinkButton>
+              </ButtonGroup>
+
+          <Switch>
+            <Route path="/" exact component={() => <Home />} />
+            <Route path="/aboutme" exact component={() => <AboutMe />} />
+            <Route path="/aboutwebsite" exact component={() => <AboutWebsite />} />
+            <Route path="/resume" exact component={() => <Resume />} />
+            <Route path="/contactme" exact component={() => <ContactMe />} />
+          </Switch>
+        </Router>
+              
+          </div>
+      )
+  }
+    }
+
