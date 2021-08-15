@@ -8,27 +8,32 @@ class Button extends React.Component{
         this.style = {
             textDecoration:"none",
             color:"black",
-            borderBottom: "4px solid black"
+            textAlign:"center",
+            padding: 20,
+            backgroundColor: "white"
         }
         this.link =  "/" + props.link;
         this.myRef = React.createRef()
         
     }
     mouseOver(e) {
-        e.currentTarget.style.borderBottom = "4px solid white"        
+        e.currentTarget.style.backgroundColor = "green"
+        e.currentTarget.style.color = "white"       
     }
     mouseDown(e) {
-        e.currentTarget.style.borderBottom= "4px solid #800085"        
+        e.currentTarget.style.backgroundColor = "grey"       
     }
     setDefault(e) {
-        e.currentTarget.style.borderBottom = "4px solid black"        
+        e.currentTarget.style.backgroundColor = "white"
+        e.currentTarget.style.color = "black" 
     }
+
     render() {
         
-        return (<Link to={this.link} ref={this.myRef} style = {this.style} className="button" id = {this.props.id} onMouseOver={this.mouseOver} 
-        onMouseOut={this.setDefault} onMouseDown={this.mouseDown} onMouseUp={this.setDefault}>
-                {this.props.text}
-            </Link>)
+        return (<div  style = {this.style} className="button" id = {this.props.id} onMouseOver={this.mouseOver} 
+        onMouseOut={this.setDefault.bind(this)} onMouseDown={this.mouseDown} onMouseUp={this.setDefault} onClick={this.props.onClick}>
+                {this.props.text} 
+            </div>)
     }
 
 }

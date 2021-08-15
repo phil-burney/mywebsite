@@ -11,9 +11,13 @@ class TextAreaBox extends React.Component{
       alignContent: "stretch"
     }
   }
+  handleChange(e) {
+    this.props.parentCallback(e.target.value)
+    
+  }
   render() {
       return (
-        <textarea type="text" id={this.props.name} style={this.style} className="textbox"></textarea>
+        <textarea type="text" id={this.props.name} onBlur={this.handleChange.bind(this)} style={this.style} className="textbox"></textarea>
 
     )
   }
