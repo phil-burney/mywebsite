@@ -8,7 +8,8 @@ class Row extends React.Component{
       display: "flex",
       flexWrap: "wrap",
       height: this.props.height,
-      paddingTop: this.props.paddingTop
+      paddingTop: this.props.paddingTop,
+      justifyContent: this.props.justify
     }
   }
   render(){

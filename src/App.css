@@ -1,17 +1,21 @@
 
+html,
+body {
+  height: 100%;
 
+}
+#root{
+  height: 100%
+}
+.App {
+  height: 100%
+}
 #home{
   text-align: center;
   font-size: 20px;
   font-weight: bold;
 }
 
-#background{
-  position:absolute;
-  top:0px;
-  right:0px;
-  height: 100%;
-  width:100%
-}
+
 
 

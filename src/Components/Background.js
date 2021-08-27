@@ -3,16 +3,24 @@ class Background extends React.Component {
   constructor(props) {
     super(props)
     this.style = {
-      backgroundImage: "url(" + this.props.image + ")",
-      zIndex: -2 
+      position: "absolute",
+ 
+      height: "100%",
+      backgroundAttachment: "fixed",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      width:"100%",
+      zIndex: -2
+      
     }
 
   }
   render(){
     return (
       <div>
-      <div id="background"style={{backgroundColor:"rgba(255,255,255,0.5", zIndex: -1}}></div>
-      <div id="background"style={this.style}></div>
+        <div id="tint"style={{...this.style, zIndex: -1, backgroundColor : "rgba(200, 0, 0, 0.5)"}}></div>
+        <div id="background"style={{...this.style, backgroundImage: "url(" + this.props.image + ")" }}></div>
       </div>
     )
     }

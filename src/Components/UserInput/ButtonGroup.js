@@ -14,7 +14,6 @@ export class ButtonBar extends React.Component{
         this.style = {
           padding: this.props.padding,
           backgroundColor: this.props.color,
-          marginBottom: 50,
           display:"flex",
           alignItems:"flex-end"
 
@@ -25,8 +24,8 @@ export class ButtonBar extends React.Component{
           color:"black",
           borderBottom: "4px solid black",
           textAlign: "center",
-          minHeight: 25,
-          padding: 25,
+          padding: 10,
+          paddingLeft:25
           
           
           
@@ -44,7 +43,7 @@ export class ButtonBar extends React.Component{
         
 
         React.Children.forEach(this.props.children, (child) => {
-          if(this.state.screenWidth > childCounter * ((this.buttonstyle.width + this.buttonstyle.padding)* 2)){
+          if(this.state.screenWidth > childCounter * (this.buttonstyle.width + this.buttonstyle.padding) + (this.buttonstyle.width + this.buttonstyle.padding) * 2){
             this.shownChildren.push(child)
           }
           else {
@@ -72,7 +71,7 @@ export class ButtonBar extends React.Component{
     render(){
         let dropDown;
         if(this.unshownChildren.length > 0){
-          dropDown = <Dropdown text={"More ∨"} buttonstyle = {this.buttonstyle}>{this.unshownChildren}</Dropdown>
+          dropDown = <Dropdown text={"More"} buttonstyle = {this.buttonstyle}>{this.unshownChildren}</Dropdown>
         }
 
         return (

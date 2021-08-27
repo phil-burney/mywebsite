@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 
 class Button extends React.Component{
@@ -9,8 +8,13 @@ class Button extends React.Component{
             textDecoration:"none",
             color:"black",
             textAlign:"center",
-            padding: 20,
+            padding: 25,
             backgroundColor: "white"
+        }
+        this.inactiveStyle = { 
+            ...this.style,
+            color:"grey",
+            backgroundColor: "#000000"
         }
         this.link =  "/" + props.link;
         this.myRef = React.createRef()
@@ -29,11 +33,19 @@ class Button extends React.Component{
     }
 
     render() {
-        
-        return (<div  style = {this.style} className="button" id = {this.props.id} onMouseOver={this.mouseOver} 
+      
+        if (this.props.active && this.props.active !== undefined) {
+            return (<div  style = {this.style} className="button" id = {this.props.id} onMouseOver={this.mouseOver} 
         onMouseOut={this.setDefault.bind(this)} onMouseDown={this.mouseDown} onMouseUp={this.setDefault} onClick={this.props.onClick}>
                 {this.props.text} 
             </div>)
+        } else {
+            return (<div  style = {this.inactiveStyle} className="button" id = {this.props.id} >
+                {this.props.text}
+            </div>)
+        }
+
+        
     }
 
 }

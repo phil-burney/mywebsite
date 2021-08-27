@@ -9,8 +9,8 @@ class Column extends React.Component{
       maxWidth: this.props.maxWidth,
       minWidth: 80,
       marginTop:0,
-      height: this.props.height
-
+      height: this.props.height,
+      color: this.props.color
   
 
     }

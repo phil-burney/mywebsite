@@ -37,24 +37,13 @@ export default class Dropdown extends React.Component{
     
     if(this.state.showChildren){
       children  = this.props.children
-      // <div>
-      // <div>Opt1</div>
-      // <div>Opt2</div>
-      // <div>Opt3</div>
-      // </div>
+    
       
     
     }
     return(
-      // <div onMouseOver={this.mouseOver.bind(this)} onMouseOut={this.setDefault.bind(this)}>
-      //   <div style={this.props.buttonStyle}  >
-      //     {this.props.text}
-      //   </div>
-      //   <div style = {this.dropStyle} >
-      //     {children}
-      //   </div>
-      // </div>
-     <div style={this.props.buttonstyle }  onMouseOver={this.mouseOver.bind(this)} onMouseLeave={this.setDefault.bind(this)}>
+  
+     <div style={this.props.buttonstyle}  onMouseOver={this.mouseOver.bind(this)} onMouseLeave={this.setDefault.bind(this)}>
       
       <div>    
          {this.props.text}
@@ -63,10 +52,6 @@ export default class Dropdown extends React.Component{
            {children}
          </div>
       </div>
-      
-      
-     
-      
     )
   }
   
